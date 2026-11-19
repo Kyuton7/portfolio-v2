@@ -1,5 +1,5 @@
 import type { Image, ToolMark } from './schema'
-import { certification, externalLinks, site } from './site'
+import { certification, site } from './site'
 import { tools } from './tools'
 
 /**
@@ -10,28 +10,28 @@ export const aboutSection = {
   eyebrow: 'About',
   titleThin: "Hi, I'm",
   titleBold: `${site.name}.`,
-  lede: 'PLACEHOLDER - tell me what to put here: one sentence on what you do and for whom.',
-  lead: 'PLACEHOLDER - tell me what to put here: your background.',
-  leadQuiet: 'PLACEHOLDER - tell me what to put here: what you do now.',
+  lede: 'I build automation systems for businesses losing hours a week to work a machine should be doing.',
+  lead: 'I work solo and full-stack. I audit the systems you already run, map the process, build it, document it in plain English and hand it over myself. There is no second freelancer to brief and no gap between the build and the handover.',
+  leadQuiet: 'In practice that means self-hosted n8n for most builds, GoHighLevel where the team already lives there, and AI doing the judgement work in between.',
   note: {
     company: `${site.brand} is my company`,
-    product: { label: 'Your Product', href: externalLinks.showcase },
-    rest: 'PLACEHOLDER - tell me what to put here: one sentence on how the product relates to your company, or delete this note.',
+    product: { label: 'the Command Centre', href: '/showcase' },
+    rest: 'is the build I can show you end to end: a live operations dashboard running inside a client CRM.',
   },
   picture: {
     src: '/images/profile/desk.webp',
     srcSet: '/images/profile/800/desk.webp 800w, /images/profile/desk.webp 1200w',
-    alt: `Illustration of ${site.name} at a desk, working at a monitor with a coffee beside them`,
+    alt: 'Illustration of a desk with a laptop, a lamp, a coffee and a plant',
     width: 1200,
     height: 889,
   } satisfies Image,
 }
 
 export const capabilities: { title: string; tools: ToolMark[] }[] = [
-  { title: 'Role One', tools: [tools.toolA, tools.toolB, tools.toolC] },
-  { title: 'Role Two', tools: [tools.toolD, tools.toolE, tools.toolF, tools.toolG, tools.toolH] },
-  { title: 'Role Three', tools: [tools.toolD, tools.toolI, tools.toolJ, tools.toolK, tools.toolL] },
-  { title: 'Role Four', tools: [tools.toolF, tools.toolG, tools.toolH] },
+  { title: 'Workflow automation', tools: [tools.n8n, tools.make, tools.zapier] },
+  { title: 'AI systems and agents', tools: [tools.openai, tools.claude, tools.n8n] },
+  { title: 'CRM and pipelines', tools: [tools.ghl, tools.hubspot, tools.airtable, tools.sheets] },
+  { title: 'Integrations and ops', tools: [tools.slack, tools.gmail, tools.notion, tools.stripe, tools.docker] },
 ]
 
 export type AboutCredential = {
@@ -46,20 +46,5 @@ export type AboutCredential = {
 
 export const credentials: AboutCredential[] = [
   { id: 'cert', title: certification.title, detail: certification.detail, image: { ...certification.image!, alt: '' } },
-  { id: 'place', title: `Based ${site.timePlace}`, detail: 'Your time zone · Your hours' },
-  {
-    id: 'community',
-    title: 'Your Community',
-    detail: 'Your role',
-    href: '#',
-    image: { src: '/images/badges/64/community.webp', alt: '', width: 64, height: 64 },
-  },
-  {
-    id: 'partner',
-    title: 'Your Partner',
-    detail: 'Your role',
-    href: '#',
-    image: { src: '/images/badges/64/partner-light.webp', alt: '', width: 64, height: 64 },
-    imageDark: { src: '/images/badges/64/partner.webp', alt: '', width: 64, height: 64 },
-  },
+  { id: 'place', title: `Based ${site.timePlace}`, detail: 'GMT+8, with hours shifted to overlap yours' },
 ]

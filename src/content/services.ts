@@ -3,8 +3,8 @@ import { tools } from './tools'
 
 export const servicesPage = {
   eyebrow: 'Services',
-  title: 'Everything you offer, in one line each.',
-  lede: 'PLACEHOLDER - tell me what to put here: one sentence on what you offer and how a client can combine it.',
+  title: 'Everything I build, in one line each.',
+  lede: 'Five things, and most clients start with one. The next gets added once the first is paying for itself.',
 }
 
 /**
@@ -16,52 +16,75 @@ export const servicesSection = {
   titleThin: 'Pick one',
   titleBold: 'or stack a few.',
   explore: 'Explore',
-  /** The Work chapter each card opens, by service id (a chapter id from home.ts). */
-  work: { 'service-1': 'screens', 'service-2': 'featured', 'service-3': 'websites', 'service-4': 'websites', 'service-5': 'apps' } as Record<string, string>,
+  /** The Work chapter each card opens, by service id (a chapter id from work.ts). */
+  work: {
+    'ai-automation': 'ai-agents',
+    'workflow-automation': 'client-systems',
+    'process-automation': 'back-office',
+    'systems-integration': 'client-systems',
+    'funnels': 'lead-engines',
+  } as Record<string, string>,
 }
-
-const SUMMARY = 'PLACEHOLDER - tell me what to put here: the benefit of this service in one line.'
-const BULLET = 'PLACEHOLDER - tell me what to put here: one short benefit'
 
 export const services: Service[] = [
   {
-    id: 'service-1',
-    title: 'Service One',
-    summary: SUMMARY,
-    outcome: 'Outcome One',
-    bullets: [BULLET, BULLET, BULLET],
-    tools: [tools.toolA, tools.toolB, tools.toolC],
+    id: 'ai-automation',
+    title: 'AI Automation Development',
+    summary: 'AI that does the judgement work: reading, classifying, drafting and deciding, with you holding the send button.',
+    outcome: 'Fewer manual calls',
+    bullets: [
+      'AI agents behind a human approval gate',
+      'Voice AI agents that handle inbound and outbound calls',
+      'Website chatbots built to book, not to chat',
+    ],
+    tools: [tools.openai, tools.claude, tools.n8n],
   },
   {
-    id: 'service-2',
-    title: 'Service Two',
-    summary: SUMMARY,
-    outcome: 'Outcome Two',
-    bullets: [BULLET, BULLET, BULLET],
-    tools: [tools.toolD, tools.toolE, tools.toolF],
+    id: 'workflow-automation',
+    title: 'Workflow Automation',
+    summary: 'The repetitive half of your week moved into systems that run whether or not anyone remembers.',
+    outcome: 'Hours back weekly',
+    bullets: [
+      'Self-hosted n8n builds, the default stack',
+      'Make and Zapier architecture when the team already lives there',
+      'GoHighLevel workflow automation',
+    ],
+    tools: [tools.n8n, tools.make, tools.zapier],
   },
   {
-    id: 'service-3',
-    title: 'Service Three',
-    summary: SUMMARY,
-    outcome: 'Outcome Three',
-    bullets: [BULLET, BULLET, BULLET],
-    tools: [tools.toolG, tools.toolH, tools.toolI],
+    id: 'process-automation',
+    title: 'Business Process Automation',
+    summary: 'Lead handling, follow-up and document work running end to end without a person pushing it along.',
+    outcome: 'Lower admin load',
+    bullets: [
+      'CRM and pipeline builds',
+      'SMS and email follow-up sequences',
+      'Document processing, sorting and filing',
+    ],
+    tools: [tools.ghl, tools.sheets, tools.gmail],
   },
   {
-    id: 'service-4',
-    title: 'Service Four',
-    summary: SUMMARY,
-    outcome: 'Outcome Four',
-    bullets: [BULLET, BULLET, BULLET],
-    tools: [tools.toolJ, tools.toolK, tools.toolL],
+    id: 'systems-integration',
+    title: 'Systems Integration',
+    summary: 'Tools that do not talk to each other, wired together so the same data stops being retyped.',
+    outcome: 'One source of truth',
+    bullets: [
+      'API and webhook integrations',
+      'Slack approval and alerting workflows',
+      'Automated data pipelines across platforms',
+    ],
+    tools: [tools.slack, tools.airtable, tools.hubspot],
   },
   {
-    id: 'service-5',
-    title: 'Service Five',
-    summary: SUMMARY,
-    outcome: 'Outcome Five',
-    bullets: [BULLET, BULLET, BULLET],
-    tools: [tools.toolA, tools.toolF, tools.toolK],
+    id: 'funnels',
+    title: 'Funnels and Landing Pages',
+    summary: 'Pages built to get the call booked, wired straight into the automation sitting behind them.',
+    outcome: 'Booked calls',
+    bullets: [
+      'Landing pages and full multi-step funnels',
+      'Booking and lead capture wired in, not bolted on',
+      'Built in GoHighLevel or as code, whichever you will maintain',
+    ],
+    tools: [tools.ghl, tools.stripe, tools.n8n],
   },
 ]

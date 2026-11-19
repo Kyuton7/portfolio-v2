@@ -22,10 +22,10 @@ import {
  * (see the comment on `.hero__title` there).
  */
 export const homeHero = {
-  headlineThin: 'Your headline.',
-  headlineBold: 'Make it yours.',
-  subhead: 'PLACEHOLDER - tell me what to put here: one sentence on who you help and the result you get them.',
-  cta: { label: 'Get in touch', to: '/#contact' },
+  headlineThin: 'Repetitive work,',
+  headlineBold: 'gone for good.',
+  subhead: 'I help businesses eliminate repetitive work and scale operations through intelligent automation.',
+  cta: { label: 'Book a free strategy call', to: '/#contact' },
 }
 
 /**
@@ -38,15 +38,14 @@ export type ManifestoPart = string | { key: string }
 export const homeManifesto = {
   eyebrow: method.eyebrow,
   parts: [
-    'This is your',
-    { key: 'statement.' },
-    'Say who you',
-    { key: 'help,' },
-    'what you',
-    { key: 'make' },
-    'for them, and how you',
-    { key: 'deliver' },
-    'the result they came for.',
+    'I find the work that',
+    { key: 'repeats,' },
+    'map how it actually',
+    { key: 'runs,' },
+    'build the system that',
+    { key: 'replaces it,' },
+    'and hand it over with a doc anyone on your team can',
+    { key: 'follow.' },
   ] satisfies ManifestoPart[],
 }
 
@@ -67,7 +66,7 @@ export const homeSections = {
 
 export const ctaBand = {
   title: 'Tell me what is eating your week.',
-  body: 'PLACEHOLDER - tell me what to put here: one or two sentences on what the visitor gets when they write to you.',
+  body: 'Send me the task that keeps coming back. I will tell you straight whether it is worth automating, and if it is not, I will say so.',
   button: 'Email me your question',
 }
 
@@ -153,7 +152,7 @@ export const workChapters: WorkChapter[] = [
     count: 1,
     unit: 'project',
     description: 'PLACEHOLDER - tell me what to put here: one or two sentences on your featured project (under 160 characters).',
-    marks: [tools.toolA, siteMark],
+    marks: [tools.n8n, siteMark],
     items: [],
     lead: cover('featured-project', featuredProject.title, 'cover'),
     gallery: featuredProject.gallery,
@@ -166,7 +165,7 @@ export const workChapters: WorkChapter[] = [
     count: caseStudies.length,
     unit: 'cases',
     description: 'PLACEHOLDER - tell me what to put here: one or two sentences on your case studies (under 160 characters).',
-    marks: [tools.toolB, tools.toolC, tools.toolD],
+    marks: [tools.ghl, tools.n8n, tools.slack],
     items: caseStudies.map((study) => ({
       id: study.id,
       name: study.title,
@@ -183,7 +182,7 @@ export const workChapters: WorkChapter[] = [
     count: 1,
     unit: 'doc',
     description: 'PLACEHOLDER - tell me what to put here: one or two sentences on the process document you show (under 160 characters).',
-    marks: [tools.toolE],
+    marks: [tools.notion],
     items: [],
     lead: cover('process-doc', processDoc.title, 'cover'),
     link: processDoc.link,
@@ -195,7 +194,7 @@ export const workChapters: WorkChapter[] = [
     count: screenItems.length,
     unit: 'screens',
     description: 'PLACEHOLDER - tell me what to put here: one or two sentences on the screens you show (under 160 characters).',
-    marks: [tools.toolF, tools.toolG, tools.toolH],
+    marks: [tools.n8n, tools.openai, tools.slack],
     items: screenItems,
   },
   {
@@ -205,7 +204,7 @@ export const workChapters: WorkChapter[] = [
     count: sampleSites.length + funnelPages.length + bookingPages.length,
     unit: 'pages',
     description: 'PLACEHOLDER - tell me what to put here: one or two sentences on the sites and pages people can open live (under 160 characters).',
-    marks: [tools.toolI, tools.toolJ, tools.toolK],
+    marks: [tools.ghl, tools.stripe, tools.n8n],
     items: [
       ...sampleSites.map(demoItem('Sample sites')),
       ...funnelPages.map(demoItem('Funnel pages')),
@@ -227,7 +226,7 @@ export const workChapters: WorkChapter[] = [
       height: 928,
       srcSet: '/images/apps/320/app-1-tile.webp 320w, /images/apps/app-1-tile.webp 540w',
     },
-    marks: [tools.toolL, tools.toolA, tools.toolB],
+    marks: [tools.supabase, tools.n8n, tools.docker],
     items: apps.map((app) => ({ id: app.id, name: app.name, kicker: app.kind, summary: app.summary, image: app.image, status: app.status })),
   },
   {
@@ -237,7 +236,7 @@ export const workChapters: WorkChapter[] = [
     count: sideProjectItems.length,
     unit: 'builds',
     description: 'PLACEHOLDER - tell me what to put here: one or two sentences on your side projects (under 160 characters).',
-    marks: [tools.toolC, tools.toolD, tools.toolE],
+    marks: [tools.openai, tools.sheets, tools.gmail],
     items: sideProjectItems,
   },
   {
@@ -247,7 +246,7 @@ export const workChapters: WorkChapter[] = [
     count: experimentItems.length,
     unit: 'tests',
     description: 'PLACEHOLDER - tell me what to put here: one or two sentences on your experiments (under 160 characters).',
-    marks: [siteMark, tools.toolF],
+    marks: [siteMark, tools.claude],
     items: experimentItems,
   },
 ]
