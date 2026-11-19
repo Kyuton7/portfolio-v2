@@ -52,23 +52,45 @@ for exact headlines, image paths and link URLs.
 | `legal.ts` | nothing | Template ships a draft privacy policy and terms. Edit the names and keep. |
 | `schema.ts` | n/a | Types only. Do not edit. |
 
+## 2b. Where "experience" goes
+
+Decided 2026-11-20. v1's Experience section is not a work history at all, it is six
+certificates with clickable full-size scans. So "experience" splits three ways:
+
+| Piece | Home in v2 | Note |
+|---|---|---|
+| 6 certificates | Their own Work chapter, replacing `experiments` | The sheet's gallery lightbox gives the same open-the-scan behaviour v1 had. |
+| Client engagements | `proof.ts` client accounts | Industry only, never a company name. That is his standing rule and the KB repeats it. |
+| 5 testimonials | `proof.ts` quotes, with the role as the name | They are anonymised, so `Quote` loses its `date` field. No name and no date gets invented. |
+| Work history with dates | Not shown | v1 never had one. The builds are the evidence; a thin history would read like a junior CV. |
+
+The `Quote` type change is one optional field in `schema.ts` plus the line that
+renders it. Nothing else reads `date`.
+
 ## 3. Work chapters: the regroup
 
 v2 does not take a flat list of 23 cards. It takes chapters, each with a count, a
-unit, a cover and its builds. Proposed split:
+unit, a cover and its builds.
 
-1. **Client systems** (7) - Maintenance Reminder, Field Service to CRM Sync, Quote
-   Follow-Up, Operations Command Centre, AI DM Setter with Approval Gate, Client
-   Check-In Summariser, Multi-Brand Lead Funnel. Every one has a screenshot.
-2. **AI agents** (6) - Resume Parser, Email Triage, Customer Support Agent, Lead
-   Follow-Up and Booking, Voice Agent (Vapi + GHL), Content Repurposing.
-3. **Back office** (6) - Gmail Document Processing, Xero to Asana, Slack to Notion,
-   Expense Categorization, Invoice Processing, Stripe Revenue Tracking.
-4. **Lead engines** (4) - Asana CRM Lead Engagement, Stale Lead Recovery, Cold Email
-   Outreach, Speed to Lead.
+**The constraint that decided this:** the bento's grid areas in `work.css` are keyed
+by chapter id, and each tile has its own shape. Inventing four new chapters means
+redesigning that grid. Keeping the template's eight and mapping onto them costs one
+id rename. So:
 
-Four chapters, 23 builds, every build keeps its existing screenshot. Counts are
-derived from the arrays, never typed in, per the schema comment.
+| Chapter | Holds | Source |
+|---|---|---|
+| `featured` | One standout client build, with a gallery | Client systems |
+| `case-studies` | Two client builds told as problem and result | Client systems |
+| `process` | A redacted blueprint or SOP | `Clients/_Past/*` docs, sanitised |
+| `screens` | The 16 capability builds, one screenshot each | `src/assets/projects/` |
+| `websites` | Funnels and landing pages | Van Ede Glas Schuifwanden and others |
+| `apps` | Repurposed as dashboards and tools | MDS Command Centre, financial tracker, crypto tracker |
+| `side-projects` | His own running systems | QG Lead Engine, WAT scraper, portfolio chatbot |
+| `certifications` | The six certificate scans (renamed from `experiments`) | `src/assets/certs/` |
+
+Counts are derived from the arrays, never typed in, per the schema comment. The one
+code change is the `experiments` to `certifications` id in `work.css`, and widening
+`AppBuild['kind']` to allow 'Web app'.
 
 ## 4. Showcase: MDS Command Centre
 
